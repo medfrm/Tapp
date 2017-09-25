@@ -1,5 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
+var url = 'mongodb://localhost:27017/Tapp';
 
 var node = function node()
 {
@@ -8,8 +9,6 @@ var node = function node()
   this.list = [{names : "", numbers : ""}];
   this.indices : (this.list) => {};
 };
-
-var url = 'mongodb://localhost:27017/Tapp';
 
 MongoClient.connect(url, function(err, db)
 {
@@ -24,11 +23,13 @@ var insertNode = function(db, callback)
 
   collection.insertOne(node, function(err, result) {
     assert.equal(err, null);
-    assert.equal(3, result.result.n);
-    assert.equal(3, result.ops.length);
+    //assert.equal(3, result.result.n);
+    //assert.equal(3, result.ops.length);
     console.log("Inserted object into the document collection");
     callback(result);
   });
 }
+
+var 
 
 module.exports = dbs;
