@@ -1,13 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var control = require('../controllers/control');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/Tapp', (req, res, next) => {
-	res.send('Hell is already here ! eeh you !')
-});
+router.get('/app', control.action);
 
 module.exports = router;
